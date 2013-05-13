@@ -1,32 +1,92 @@
-function love.load()
-	stime = love.timer.getTime()
-	love.graphics.setMode(100, 100)
-	love.graphics.setBackgroundColor(255, 255, 255)
-	diglett1 = love.graphics.newImage('diglett1.png')
-	diglett2 = love.graphics.newImage('diglett2.png')
-	diglett3 = love.graphics.newImage('diglett3.png')
-	diglett4 = love.graphics.newImage('diglett4.png')
-	diglett5 = love.graphics.newImage('diglett6.png')
-	diglett6 = love.graphics.newImage('diglett5.png')
-	love.graphics.draw(diglett1, 50, 50)
+require 'middleclass'
+--
+
+Diglett = Object:subclass('Diglett')
+
+function Diglett:initialize(x, y)
+	self.state = 1
+	self.x = x +11
+	self.y = y +13
+end	
+
+function Diglett:draw()
+	love.graphics.draw(dig[self.state], self.x, self.y)
 end
-	
-function love.draw()
-	time = love.timer.getTime() - stime
-	frameCount = (time*3)%10
-	if frameCount > 3 and frameCount < 4 then
-		love.graphics.draw(diglett2, 50, 50)
-	elseif frameCount > 4 and frameCount < 5 then
-		love.graphics.draw(diglett3, 50, 50)
-	elseif frameCount > 5 and frameCount < 6 then
-		love.graphics.draw(diglett4, 50, 50)
-	elseif frameCount > 6 and frameCount < 7 then
-		love.graphics.draw(diglett5, 50, 50)
-	elseif frameCount > 7 and frameCount < 8 then
-		love.graphics.draw(diglett6, 50, 50)
-	elseif frameCount > 9 and frameCount < 10 then
-		love.graphics.draw(diglett2, 50, 50)
+
+function Diglett:update()
+	if love.mouse.isDown("l")  then
+		self:hide()
+	elseif love.mouse.isDown("r") then
+		self:comeUp()
 	else
-		love.graphics.draw(diglett1, 50, 50)
+		self:idle()
 	end
+end
+
+function Diglett:hide()
+	if (self.state == 1) or (self.state == 2) or (self.state == 6) then
+		self.state = 3
+		love.timer.sleep(0.1)
+	elseif (self.state == 3) or (self.state == 5) then
+		self.state = 4
+		love.timer.sleep(0.1)
+	end
+end
+
+function Diglett:comeUp()
+	if self.state == 2 then
+		self.state = 1
+		love.timer.sleep(0.1)
+	elseif (self.state == 3) or (self.state == 5) then
+		self.state = 6
+		love.timer.sleep(0.1)
+	elseif self.state == 4 then
+		self.state = 5
+		love.timer.sleep(0.1)
+	elseif self.state == 6 then
+		self.state = 2
+		love.timer.sleep(0.1)
+	end
+end
+
+function Diglett:idle()
+	if (self.state == 1) or (self.state == 2) then
+		self.shift()
+	elseif self.state == 4 then
+		self.state = 5
+	end
+end
+
+function Diglett:shift()
+	if self.state == 1 then
+		self.state = 2
+	else
+		self.state = 1
+	end
+end
+--
+
+digletts = {}
+digly = Diglett(50, 50)
+table.insert(digletts, digly)
+
+function love.load()
+	loadtime = love.timer.getTime()
+	love.graphics.setMode(200, 200)
+	love.graphics.setBackgroundColor(255, 255, 255)
+	dig1 = love.graphics.newImage('diglett1.png')
+	dig2 = love.graphics.newImage('diglett2.png')
+	dig3 = love.graphics.newImage('diglett3.png')
+	dig4 = love.graphics.newImage('diglett4.png')
+	dig5 = love.graphics.newImage('diglett5.png')
+	dig6 = love.graphics.newImage('diglett6.png')
+	dig = { dig1, dig2, dig3, dig4, dig5, dig6 }
+end
+
+function love.update()
+	for i,v in ipairs(digletts) do v:update() end
+end
+
+function love.draw()
+	for i,v in ipairs(digletts) do v:draw() end
 end
