@@ -51,18 +51,20 @@ end
 
 function Diglett:idle()
 	if (self.state == 1) or (self.state == 2) then
-		self.shift()
+		self:shift()
 	elseif self.state == 4 then
 		self.state = 5
+		love.timer.sleep(0.3)
 	end
 end
 
 function Diglett:shift()
 	if self.state == 1 then
 		self.state = 2
-	else
+	elseif self.state == 2 then
 		self.state = 1
 	end
+	love.timer.sleep(0.4)
 end
 --
 
