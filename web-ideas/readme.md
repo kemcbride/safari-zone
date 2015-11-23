@@ -1,0 +1,9 @@
+Little ideas that are kinda html/css/js based that I've had sitting around for a while...
+
+- dekadin, named after the character from Zelda Oo(A?). That little depressing guy who you tell a joke to. Mostly the point is to maybe try to create scrolling text? The 'trial' stuff I've done for that actually isn't in there yet.
+- clouds, named after the clouds in Spyro loading screens. It'd be nice to make some animated clouds or something, moving gradients...
+- pale-coal, just uh heh a dingus-y little thing to use a "JASC-PAL" palette and stick the colors into less. nothing too smart. i guess there is some library for naming colors, jacky alcine posted about it on twitter...
+
+
+There are definitely more ideas on my list, don't think that's all I got.
+But at the same time, it really is.

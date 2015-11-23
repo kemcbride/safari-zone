@@ -1,0 +1,114 @@
+#!/usr/bin/ruby
+# Read a JASC-PAL file and get the colors out of it.
+# Intended for pretty simple & small PAL files ( < 16 unique colors )
+# but also intended for use with Grafx2 which generate with 256 colors regardless
+
+class RGBColor
+  # the default color is black
+  def initialize(string="0 0 0")
+    @r, @g, @b = string.split.each { |c| c.to_i }
+  end
+
+  def r
+    @r
+  end
+
+  def g
+    @g
+  end
+
+  def b
+    @b
+  end
+
+  def to_s
+    return "#{@r}, #{@g}, #{@b}"
+  end
+
+  def ==(other)
+    return @r == other.r && @g == other.g && @b == other.b
+  end
+end
+
+class Palette
+  def initialize(palette_path)
+    palette_file = File.open(palette_path)
+    @colors = {}
+
+    read_headers(palette_file)
+    read_colors(palette_file)
+  end
+
+  def read_headers(palette_file)
+    # Expected header lines:
+    # JASC-PAL
+    # 0100
+    # 16 / 256 (no. colors in file)
+
+    @pal_type = palette_file.readline # we don't actually care what this has...
+    raise "Invalid JASC-PAL format." unless palette_file.readline.strip == "0100" 
+    @color_size = palette_file.readline.to_i or raise "Invalid color number in header"
+  end
+
+  def read_colors(palette_file)
+    # So given we've already read the header lines,
+    # Each color (assume sorted descending presence in image)
+    # RGB (0-255) (0-255) (0-255)
+
+    # also, based on how Grafx2 creates its palettes
+    # if we see black more than once, we're done
+    palette_file.each_with_index do |l, i|
+
+      # create an RGB object for each line
+      color = RGBColor.new(l)
+      unless @colors.has_value?(color)
+        @colors[i] = color 
+      else break if color == RGBColor.new # the default color is black
+      end
+    end
+  end
+
+  def print_less(output_file=nil)
+    less_output = generate_less
+    if output_file
+      File.open(output_file, 'w').puts(less_output)
+    else
+      puts(less_output)
+    end
+  end
+
+  def generate_less
+    less_output = []
+
+    # so we have a few ordinal names first, then just by number
+    @colors.each do |k, v|
+      case k
+      when 0
+        name = "base"
+      when 1
+        name = "primary"
+      when 2
+        name = "secondary"
+      when 3
+        name = "tertiary"
+      else
+        name = "#{k}"
+      end
+      less_output << "@#{name}: rgb(#{v});"
+    end
+    return less_output.join("\n")
+  end
+end
+
+# main
+case ARGV.size
+when 0
+  puts "usage: ./lesstract PALETTE_FILE_PATH [LESS_OUTPUT_PATH]"
+when 1
+  # output to stdout
+  Palette.new(ARGV[0]).print_less
+when 2
+  # output to file at ARGV[1]
+  Palette.new(ARGV[0]).print_less(ARGV[1])
+end
+

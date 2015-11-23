@@ -1,0 +1,58 @@
+<html>
+
+<head>
+<title> ailean </title>
+<!-- something something comment -->
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+
+<script>
+$(document).ready( function () {
+	var $guy = $("#sprite");
+	var flag = 0;
+
+	$(document).bind('keydown', function() {
+	$guy.removeClass("lildude");
+	if(flag == 1) $guy.addClass("lildudeL");
+	else $guy.addClass("lildudeR");
+
+	flag = (flag+1)%2;
+	});
+
+	$(document).bind('keyup', function() {
+		$guy.removeClass("lildudeR lildudeL").addClass("lildude");
+	});
+});
+// This will hopefully get called... all the time
+// or at least on startup, and then on the event.
+</script>
+
+</head>
+
+<style media="screen" type="text/css">
+.lildude {
+  background:url(lildude.png) 0 0px;
+  width: 64px;
+  height: 64px;
+}
+
+.lildudeL {
+  background:url(lildude.png) 0 64px;
+  width: 64px;
+  height: 64px;
+}
+
+.lildudeR {
+  background:url(lildude.png) 0 128px;
+  width: 64px;
+  height: 64px;
+}
+  
+</style>
+
+<body>
+
+<div class="lildude" id="sprite"></div>
+
+</body>
+
+</html>

@@ -74,7 +74,7 @@ table.insert(digletts, digly)
 
 function love.load()
 	loadtime = love.timer.getTime()
-	love.graphics.setMode(200, 200)
+	-- love.graphics.setMode(200, 200)
 	love.graphics.setBackgroundColor(255, 255, 255)
 	dig1 = love.graphics.newImage('diglett1.png')
 	dig2 = love.graphics.newImage('diglett2.png')

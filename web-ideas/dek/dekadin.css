@@ -1,0 +1,33 @@
+body {
+ background: black;
+}
+
+
+.outer-container {
+	display: table;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+}
+
+.inner-container {
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+
+	width: 160px;
+	height: 128px;
+}
+
+#house {
+	opacity: 0; /* invisible at first :o */
+
+	-webkit-transition: opacity 4s;
+	transition: opacity 4s;
+}
+
+#house:hover {
+	opacity: 1;
+	-webkit-transition: opacity 4s;
+	transition: opacity 4s;
+}
