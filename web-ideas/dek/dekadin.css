@@ -1,7 +1,6 @@
 body {
- background: black;
+    background: black;
 }
-
 
 .outer-container {
 	display: table;
@@ -19,6 +18,25 @@ body {
 	height: 128px;
 }
 
+#text-box {
+    vertical-align: middle;
+    margin: 10px auto 0;
+    padding: 2px;
+
+    text-align: left;
+    font-family: monospace;
+
+    overflow: none;
+
+    width: 160px;
+    height: 44px;
+
+    border: 4px double black;
+    border-radius: 4px;
+    background: white;
+    color: black;
+}
+
 #house {
 	opacity: 0; /* invisible at first :o */
 
@@ -30,4 +48,9 @@ body {
 	opacity: 1;
 	-webkit-transition: opacity 4s;
 	transition: opacity 4s;
+}
+
+.hidden {
+    display: none;
+    visibility: hidden;
 }
