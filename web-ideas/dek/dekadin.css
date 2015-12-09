@@ -5,12 +5,13 @@ body {
 .outer-container {
 	display: table;
 	position: absolute;
-	height: 100%;
-	width: 100%;
+	height: 90%;
+	width: 90%;
 }
 
 .inner-container {
 	display: table-cell;
+    /* position: relative; */
 	vertical-align: middle;
 	text-align: center;
 
@@ -18,10 +19,23 @@ body {
 	height: 128px;
 }
 
+.ready-to-flush:before {
+    /* id actually like to use the bigger triangle or a chevron */
+    content: attr(flush-symbol); /* ▾ */
+    color: green;
+    z-index: 2; /* sure that this shows above the container */
+    position: absolute;
+
+    /* there should be a nice way to calculate this using the size of text-box  (or your target) */
+    margin-top: 32px; /* 44 - 12 ?? */
+    margin-left: 154px; /* 160 - 6 ?? */
+}
+
 #text-box {
     vertical-align: middle;
     margin: 10px auto 0;
     padding: 2px;
+    position: relative;
 
     text-align: left;
     font-family: monospace;
