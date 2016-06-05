@@ -1,0 +1,46 @@
+[pokedex-xy]
+kangaskhan! 115
+diglett!
+arcanine
+charmeleon 5
+wartortle 8
+pidgey
+sandshrew
+psyduck
+electrode 101
+lapras
+tauros
+dragonair
+quilava
+corsola
+girafarig!
+furret!
+stantler!
+mareep!
+swinub!
+wooper
+scizor
+noctowl
+lanturn
+delibird
+phanpy
+houndour
+skarmory
+mantine
+octillery
+teddiursa
+swablu!
+latios!
+taillow
+spinda
+flygon
+absol
+zangoose
+poochyena
+sharpedo
+seviper
+tropius
+castform
+kecleon
+buizel!
+blitzle!
