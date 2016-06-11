@@ -1,3 +1,4 @@
+```
 Did you try the
 SAFARI GAME? Some
 POKéMON can only
@@ -7,6 +8,7 @@ be caught there.
 SAFARI ZONE has a
 zoo in front of
 the entrance.
+```
 
 Mostly just a place for me to play around with little ideas that don't warrant their own repo...
 
