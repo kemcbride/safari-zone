@@ -69,20 +69,17 @@ end
 --
 
 digletts = {}
-digly = Diglett(50, 50)
+digly = Diglett(100 - 22/2, 0)
 table.insert(digletts, digly)
 
 function love.load()
 	loadtime = love.timer.getTime()
-	-- love.graphics.setMode(200, 200)
+	love.window.setMode(200, 50)
 	love.graphics.setBackgroundColor(255, 255, 255)
-	dig1 = love.graphics.newImage('diglett1.png')
-	dig2 = love.graphics.newImage('diglett2.png')
-	dig3 = love.graphics.newImage('diglett3.png')
-	dig4 = love.graphics.newImage('diglett4.png')
-	dig5 = love.graphics.newImage('diglett5.png')
-	dig6 = love.graphics.newImage('diglett6.png')
-	dig = { dig1, dig2, dig3, dig4, dig5, dig6 }
+	dig = {}
+	for i = 1, 6 do
+		dig[i] = love.graphics.newImage('diglett' .. i .. '.png')
+	end
 end
 
 function love.update()
