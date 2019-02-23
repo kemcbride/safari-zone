@@ -1,0 +1,55 @@
+body {
+  background-color: black;
+  /* Mebbe add a gradient to the background? probably black v to sth else */
+  background-image: -webkit-linear-gradient(top, #555, black); 
+  /* background-image:    -moz-linear-gradient(to top, black, gray); */
+  background-image:    linear-gradient(0deg, #555, black);
+}
+
+#target-container {
+  position: relative;
+}
+
+.targets {
+  color: #e33;
+  letter-spacing: -0.38em;
+  font-size: 2.05em;
+  z-index: -1;
+  position: absolute;`
+  left: 0;
+  right: 5px;
+  width: 100%;
+  margin: -1.1% auto;
+}
+
+.targets-off {
+  color: #33e !important;
+}
+
+.target {
+  margin: -25%;
+}
+
+#arrow-left {
+  color: #999;
+}
+
+#arrow-up {
+  color: #999;
+}
+
+#arrow-down {
+  color: #999;
+}
+
+#arrow-right {
+  color: #999;
+}
+
+.pressed {
+  color: #ddd !important;
+}
+
+#audio-player {
+  width: 300px;
+}

@@ -1,0 +1,56 @@
+body {
+	/* Fallback */
+	background-color: #246;
+  /* Safari 4-5, Chrome 1-9 */
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#aea), to(#246));
+  /* Safari 5.1, Chrome 10+ */
+  background: -webkit-linear-gradient(top, #aea, #246);
+  /* Firefox 3.6+ */
+  background: -moz-linear-gradient(top, #aea, #246);
+  /* IE 10 */
+  background: -ms-linear-gradient(top, #aea, #246);
+  /* Opera 11.10+ */
+  background: -o-linear-gradient(top, #aea, #246);
+
+  font-family: sans-serif;
+}
+
+#pixelate {
+	position: absolute;
+	height: 120%;
+	width: 120%;
+	top: 0;
+	left: 0;
+	background-image: url('../images/tileme.png');
+	background-repeat: repeat;
+	
+	-webkit-animation-name: slippery;
+	-webkit-animation-duration: 5s;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+
+	animation-name: slippery;
+	animation-duration: 5s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+
+	z-index: -1;
+}
+
+@-webkit-keyframes slippery {
+	from {
+		 left: -100px;
+	}
+	
+	to {
+		left: 0px;
+	}
+}
+
+h1 {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	opacity: 1;
+	color: #aea;
+}

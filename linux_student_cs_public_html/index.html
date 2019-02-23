@@ -1,0 +1,81 @@
+<html>
+<head>
+
+<title>
+How do you get
+out of here?
+</title>
+
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script>
+
+function tailScroll() {
+    var height = $("#my-div").get(0).scrollHeight;
+    $("#my-div").animate({
+        scrollTop: height
+    }, 800);
+}
+
+array = [
+	"Hah... Only the",
+	"darkness can",
+	"ease my heart.",
+	"I guess laughing",
+	"my troubles away",
+	"is just a dream",
+	"deferred..."
+	]
+
+
+$( document ).ready( function() {
+	/* tailScroll(); */
+	for(var i=0; i< array.length; i++) {
+		setTimeout(2);
+		$("<div>").delay(2000).text(array[i]).appendTo("#my-div");
+		tailScroll();
+	}
+});
+
+</script>
+
+<link rel="stylesheet" href="index-style.css" type="text/css" media="screen">
+
+</head>
+<body>
+
+<div class="cave">
+
+<div class="within-main" >
+ <!-- bug catcher kent -->
+<img class="cave" src="images/bugcatcher.png"></img>
+<h3> Suspicious men<br>
+are in the cave.
+<br>
+What about you?
+</h3>
+</div>
+</div>
+
+
+<div id='my-div'>
+dogs sdogs dogs
+</div>
+
+<br> <br>
+Kids like you
+<br>
+shouldn't be
+<br>
+here!
+<br>
+
+<a href="apricorn.html">hmm</a>
+<a href="fish/gonefishing.html">ah, beautiful</a>
+<a href="tilemeaboutit/trickmaster.html">mysterious...</a>
+
+<br/>
+</body>
+
+<br> <br> <br>
+o_k
+</html>

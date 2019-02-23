@@ -1,0 +1,116 @@
+body {
+	background-color: #222; /* 224477 is what you were */
+	color: #CCE;
+	text-align: center;
+
+	letter-spacing: 3px;
+	font-size: 12px;
+
+	font-family: 'Dosis', serif;
+   }
+
+h3, h4 {
+	letter-spacing: normal;
+	font-size: 1.5em;
+   }
+
+ul {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	line-height:2;
+	}
+
+a:link { 
+	color: #999999;
+	}
+a:visited {
+	color: #555555;
+	}
+a:hover {
+	color: #777777;
+	}
+ 
+div.cave {
+	font-family: sans-serif;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	padding: 1em;
+	margin-left: auto;
+	margin-right: auto;
+	width: 300px;
+
+	background: black;
+	height: auto;
+	border-radius: 20px;
+	border-style: solid;
+	border-color: #888888;
+	}
+
+img.cave {
+	float: left;
+	}
+
+::-webkit-scrollbar {
+  width: 0
+}
+
+#my-div {
+  border-style: double;
+  border-width: 0.4em;
+  background-color: #EEE;
+  color: #222;
+  width: 20em;
+  height: 3em;
+  margin: auto;
+  padding: 0.4em;
+  overflow: hidden;
+  overflow-y: scroll;
+  font-size: 1em;
+}
+
+
+div.floor {
+	background-color: #333355;
+	border-right: #669988 solid 6px;
+	margin-top: -1em;
+	margin-left: -1em;
+	padding: 3em 2em;
+	width: auto;
+	height: 100%;
+	color: black;
+	text-align: justify;
+	
+	position: absolute;
+	}
+
+div.within-floor {
+
+	background: #000022;
+	color: #FFFFFF;
+	height: 50%;
+	padding: 2em;
+	border-radius: 10px;
+	border-style: solid;
+	border-color: #339933;
+	
+	}
+
+
+a.floor:link {
+
+	color: black;
+	}
+a.floor:hover {
+
+	color: #222222;
+	}
+a.floor:visited {
+	
+	color: #444444;
+	}
+
+.footer {
+	position: relative;
+	top:100%;
+	}
